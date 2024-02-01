@@ -1,0 +1,64 @@
+
+// External resources
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap');
+
+$main-font: "Open Sans", sans-serif;
+
+// Colors
+$purple: rgb(171, 94, 208);
+$orange: rgb(255, 113, 24);
+$white: rgb(255, 255, 255);
+
+.App {
+  font-family: $main-font;
+}
+
+.button {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+  width: 190px;
+  height: 60px;
+  color: $white;
+  background: $orange;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-logo {
+  height: 44px;
+  position: absolute;
+  top: 32px;
+  left: 10%;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 750px;
+  background-image: url('../assets/hero.jpg');
+  background-size: cover;
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .title-header {
+    color: $white;
+    text-shadow: 1px 1px 1px rgb(87, 87, 87);
+    text-align: center;
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    line-height: 100%;
+    .upper-title {
+      letter-spacing: normal;
+      text-transform: uppercase;
+      font-size: 72px;
+      font-weight: 800;
+    }
+  }
+}

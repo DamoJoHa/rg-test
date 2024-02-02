@@ -8,11 +8,13 @@ $purple: rgb(171, 94, 208);
 $purple-dark: rgb(97, 52, 118);
 $orange: rgb(255, 113, 24);
 $grey: rgb(62, 62, 62);
+$grey-light: rgb(240, 240, 240);
 $white: rgb(255, 255, 255);
 
 
 // Other vars
 $slow-ease: ease-out 0.7s;
+$fast-ease: ease-out 0.3s;
 $main-font: "Open Sans", sans-serif;
 
 @keyframes appearAnimation {
@@ -22,6 +24,10 @@ $main-font: "Open Sans", sans-serif;
   100% {
     opacity: 100%
   }
+}
+
+.appearing {
+  animation: appearAnimation ease-out 2s;
 }
 
 .App {
@@ -89,7 +95,6 @@ $main-font: "Open Sans", sans-serif;
     align-items: center;
   }
   .title-header {
-    animation: appearAnimation ease-out 2s;
     color: $white;
     text-shadow: 1px 1px 1px rgb(87, 87, 87);
     text-align: center;
@@ -106,10 +111,16 @@ $main-font: "Open Sans", sans-serif;
   }
 }
 
+
+
 //GRID
+
+.background-grey {
+  background-color: $grey-light;
+}
+
 .content-grid {
   display: grid;
-  grid-template-rows: repeat(5, 600px);
 
   h2 {
     text-transform: uppercase;
@@ -119,7 +130,7 @@ $main-font: "Open Sans", sans-serif;
     margin-top: 0;
   }
 
-  .grey {
+  .grey-text {
     color: $grey;
   }
 
@@ -133,8 +144,23 @@ $main-font: "Open Sans", sans-serif;
     font-size: 18px;
     font-weight: 700;
   }
+
+  .link {
+    transition: $fast-ease;
+  }
+
+  .link:hover {
+    letter-spacing: 1px;
+    color: $purple;
+  }
+
 }
 
+
+#stars {
+  font-size: 32px;
+  color: $orange;
+}
 
 // Using IDs to set backgrounds
 
@@ -144,6 +170,10 @@ $main-font: "Open Sans", sans-serif;
 
 #banner-2 {
   background-image: url("../assets/banner-2.jpg");
+  p {
+    color: black;
+    text-shadow: 0px 0px 4px white;
+  }
 }
 
 // The grid within grid approach isn't my favorite,
@@ -153,6 +183,9 @@ $main-font: "Open Sans", sans-serif;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "left right";
   background-size: cover;
+  .text-box {
+    margin: 12px 0;
+  }
   .split-left {
     margin: auto 60px auto 15vw;
     grid-area: left;
@@ -165,6 +198,100 @@ $main-font: "Open Sans", sans-serif;
     height: 100%;
     width: 50vw;
     position: center;
-    overflow: hidden;
+
+  }
+}
+
+#image-grid-holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#image-grid {
+  display: grid;
+  grid-template-columns: 200px 200px;
+  grid-template-rows: 50px 200px 200px;
+  grid-template-areas:
+    "a a"
+    "b c"
+    "d e";
+  align-items: center;
+  justify-content: center;
+  .image-grid-image {
+    width: 120px;
+    height: 120px;
+    justify-self: center;
+    transition: $fast-ease;
+  }
+  .image-grid-image:hover {
+    scale: 120%;
+  }
+  #image-grid-title {
+    text-align: center;
+    color: $purple-dark;
+    font-size: 20px;
+    font-weight: 700;
+    grid-area: a;
+    text-transform: capitalize;
+  }
+}
+
+//Footer
+
+#footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .footer-logo {
+    width: 100px;
+    margin: 12px;
+    filter: invert(22%) sepia(46%) saturate(920%) hue-rotate(238deg) brightness(97%) contrast(90%);
+  }
+  .footer-logo:hover {
+    filter: invert(48%) sepia(65%) saturate(2599%) hue-rotate(243deg) brightness(88%) contrast(83%);
+  }
+}
+
+// Format for different screens
+@media (max-width: 800px) {
+  #header {
+    height: 100vh;
+  }
+  .content-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .grid-row-split {
+    display: flex;
+    flex-direction: column;
+    min-height: 600px ;
+  }
+  #climber-image {
+    display: none;
+  }
+  .text-box {
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .split-left {
+    margin: auto 60px;
+  }
+  .split-right {
+    margin: auto 60px;
+  }
+}
+
+@media (max-width: 1920px) {
+  .content-grid {
+    grid-template-rows: repeat(5, 600px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .content-grid {
+    grid-template-rows: auto repeat(4, 800px);
   }
 }

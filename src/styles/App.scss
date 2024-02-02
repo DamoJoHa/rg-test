@@ -2,17 +2,34 @@
 // External resources
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap');
 
-$main-font: "Open Sans", sans-serif;
 
 // Colors
 $purple: rgb(171, 94, 208);
+$purple-dark: rgb(97, 52, 118);
 $orange: rgb(255, 113, 24);
+$grey: rgb(62, 62, 62);
 $white: rgb(255, 255, 255);
+
+
+// Other vars
+$slow-ease: ease-out 0.7s;
+$main-font: "Open Sans", sans-serif;
+
+@keyframes appearAnimation {
+  0% {
+    opacity: 0%
+  }
+  100% {
+    opacity: 100%
+  }
+}
 
 .App {
   font-family: $main-font;
 }
 
+
+//Button
 .button {
   text-decoration: none;
   font-size: 20px;
@@ -26,11 +43,35 @@ $white: rgb(255, 255, 255);
   justify-content: center;
 }
 
+.button-main {
+  background: $purple;
+}
+
+.button:hover {
+  scale: 105%;
+  transition: linear .2s;
+}
+
+
+// Header
 .header-logo {
   height: 44px;
   position: absolute;
   top: 32px;
   left: 10%;
+}
+
+#logo-white:hover {
+  opacity: 0;
+}
+
+#logo-color {
+  opacity: 0;
+  transition: $slow-ease;
+}
+
+#logo-color:hover {
+  opacity: 100%;
 }
 
 #header {
@@ -39,6 +80,7 @@ $white: rgb(255, 255, 255);
   justify-content: center;
   width: 100%;
   height: 750px;
+  background-color: black;
   background-image: url('../assets/hero.jpg');
   background-size: cover;
   .header-content {
@@ -47,6 +89,7 @@ $white: rgb(255, 255, 255);
     align-items: center;
   }
   .title-header {
+    animation: appearAnimation ease-out 2s;
     color: $white;
     text-shadow: 1px 1px 1px rgb(87, 87, 87);
     text-align: center;
@@ -60,5 +103,68 @@ $white: rgb(255, 255, 255);
       font-size: 72px;
       font-weight: 800;
     }
+  }
+}
+
+//GRID
+.content-grid {
+  display: grid;
+  grid-template-rows: repeat(5, 600px);
+
+  h2 {
+    text-transform: uppercase;
+    color: $purple-dark;
+    font-size: 40px;
+    font-weight: 700;
+    margin-top: 0;
+  }
+
+  .grey {
+    color: $grey;
+  }
+
+  p {
+    color: $grey;
+    font-size: 16px;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
+
+
+// Using IDs to set backgrounds
+
+#banner-1 {
+  background-image: url("../assets/banner-1.jpg");
+}
+
+#banner-2 {
+  background-image: url("../assets/banner-2.jpg");
+}
+
+// The grid within grid approach isn't my favorite,
+// but it makes setting backgrounds and spacing things more convenient.
+.grid-row-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "left right";
+  background-size: cover;
+  .split-left {
+    margin: auto 60px auto 15vw;
+    grid-area: left;
+  }
+  .split-right {
+    margin: auto 15vw auto 60px;
+    grid-area: right;
+  }
+  img {
+    height: 100%;
+    width: 50vw;
+    position: center;
+    overflow: hidden;
   }
 }

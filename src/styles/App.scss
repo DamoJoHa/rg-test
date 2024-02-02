@@ -17,6 +17,19 @@ $slow-ease: ease-out 0.7s;
 $fast-ease: ease-out 0.3s;
 $main-font: "Open Sans", sans-serif;
 
+
+@keyframes beatAnimation {
+  0% {
+    scale: 100%
+  }
+  50% {
+    scale: 105%
+  }
+  100% {
+    scale: 100%
+  }
+}
+
 @keyframes appearAnimation {
   0% {
     opacity: 0%
@@ -24,6 +37,11 @@ $main-font: "Open Sans", sans-serif;
   100% {
     opacity: 100%
   }
+}
+
+.beating {
+  animation: beatAnimation ease-in 1.5s;
+  animation-iteration-count: infinite;
 }
 
 .appearing {
@@ -183,17 +201,21 @@ $main-font: "Open Sans", sans-serif;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "left right";
   background-size: cover;
+
   .text-box {
     margin: 12px 0;
   }
+
   .split-left {
     margin: auto 60px auto 15vw;
     grid-area: left;
   }
+
   .split-right {
     margin: auto 15vw auto 60px;
     grid-area: right;
   }
+
   img {
     height: 100%;
     width: 50vw;
@@ -222,10 +244,6 @@ $main-font: "Open Sans", sans-serif;
     width: 120px;
     height: 120px;
     justify-self: center;
-    transition: $fast-ease;
-  }
-  .image-grid-image:hover {
-    scale: 120%;
   }
   #image-grid-title {
     text-align: center;

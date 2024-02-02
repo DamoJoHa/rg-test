@@ -1,3 +1,4 @@
+// Way too many assets
 import './styles/App.scss';
 import logoW from "./assets/logo-white.svg"
 import logoC from "./assets/logo-color.svg"
@@ -12,6 +13,7 @@ import retention from "./assets/home-retention.svg"
 import React from 'react';
 import {useState} from "react"
 
+// External carousel
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
@@ -54,10 +56,10 @@ function App() {
         <h2>Follow Us:</h2>
         <div>
           <a href="https://www.instagram.com/roostergrinmedia/" target="_blank" rel="noreferrer">
-            <img src={instaLogo} alt="instagram logo" class="footer-logo" />
+            <img src={instaLogo} alt="instagram logo" className="footer-logo" />
           </a>
           <a href="https://www.facebook.com/RoosterGrin/" target="_blank" rel="noreferrer">
-            <img src={fbLogo} alt="facebook logo" class="footer-logo" />
+            <img src={fbLogo} alt="facebook logo" className="footer-logo" />
           </a>
         </div>
       </div>
@@ -83,7 +85,7 @@ function App() {
 
       // This is necessary because of the way HTML collections are.
       // Could definitely make this easier on the eyes if we passed the imgs to
-      // this component as a prop, but
+      // this component as a prop, but for this scale that's not neede
       for (let i = 0; i < images.length; i++ ) {
         images[i].setAttribute("class", "image-grid-image")
       }
@@ -102,6 +104,7 @@ function App() {
   }
 
   function TextCarousel() {
+    // React responsive carousel is responsible for all the behaviour here
     return (
       <Carousel showThumbs={false} showArrows={true} autoPlay={true} dynamicHeight={false} showStatus={false} infiniteLoop={true}>
         <div>
@@ -123,7 +126,7 @@ function App() {
     <div className="App">
       <Header />
       <div className="content-grid">
-
+        {/* Row A */}
         <div className="grid-row-split">
           <div className="split-left">
             <div className="text-box">
@@ -134,14 +137,14 @@ function App() {
           </div>
           <img src={climberImage} alt="Two climbers helping each other up a boulder." id="climber-image"/>
         </div>
-
+        {/* Banner 1 */}
         <div className="grid-row-split" id='banner-1'>
           <div className="split-left">
             <h2>{sampleTitle}</h2>
             <Button />
           </div>
         </div>
-
+        {/* Row B */}
         <div className="grid-row-split">
           <div className="split-left">
             <div className="text-box">
@@ -154,7 +157,7 @@ function App() {
             <ImageGrid />
           </div>
         </div>
-
+        {/* Banner 2 */}
         <div className="grid-row-split" id="banner-2">
           <div className="split-right">
             <div className="text-box">
@@ -164,16 +167,17 @@ function App() {
             </div>
           </div>
         </div>
-
+        {/* Row 3 */}
         <div className="grid-row-split">
           <div className="split-left">
             <h2 className='grey-text'>{sampleLongTitle}</h2>
+            {/* FontAwesome for the stars */}
             <div id="stars">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
+              <i className="fa-solid fa-star"></i>
             </div>
           </div>
           <div className="split-right">
